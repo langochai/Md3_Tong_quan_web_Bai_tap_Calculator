@@ -20,25 +20,20 @@ const server = http.createServer((req, res) => {
                 if (err) {
                     console.log(err);
                 }
-                datahtml = datahtml.replace('{firstArg}', userInfo.firstArg);
-                datahtml = datahtml.replace('{operator}', userInfo.operator);
-                datahtml = datahtml.replace('{secondArg}', userInfo.secondArg);
-                if(isNaN(userInfo.firstArg)||isNaN(userInfo.secondArg)) datahtml = datahtml.replace('{result}', "Wtf you need to put numbers in there!!!");
-                else switch (userInfo.operator){
+                if (isNaN(userInfo.firstArg) || isNaN(userInfo.secondArg)) datahtml = datahtml.replace('{result}', "Wtf you need to put numbers in there!!!");
+                else switch (userInfo.operator) {
                     case "+":
-                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg)+(+userInfo.secondArg)).toString());
+                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg) + (+userInfo.secondArg)).toString());
                         break
                     case "-":
-                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg)-(+userInfo.secondArg)).toString());
+                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg) - (+userInfo.secondArg)).toString());
                         break
                     case "*":
-                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg)*(+userInfo.secondArg)).toString());
+                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg) * (+userInfo.secondArg)).toString());
                         break
                     case "/":
-                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg)/(+userInfo.secondArg)).toString());
+                        datahtml = datahtml.replace('{result}', ((+userInfo.firstArg) / (+userInfo.secondArg)).toString());
                         break
-                    default:
-                        datahtml = datahtml.replace('{result}', "Wtf wrong operator used");
                 }
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.write(datahtml);
