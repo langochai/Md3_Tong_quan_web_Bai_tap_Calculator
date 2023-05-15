@@ -8,9 +8,14 @@
 <form action="" method="post">
   <table>
     <tr>
-      <td><input type="text" name="firstArg" required></td>
-      <td><input type="text" name="operator" required></td>
-      <td><input type="text" name="secondArg" required></td>
+      <td><input type="text" name="firstArg"></td>
+      <td><select name="operator" >
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select></td>
+      <td><input type="text" name="secondArg"></td>
     </tr>
     <tr>
       <td>
@@ -18,7 +23,9 @@
       </td>
     </tr>
   </table>
+  <a href="./data.html">
+    <button>back</button>
+  </a>
 </form>
-<p id="result">Result:</p>
 </body>
 </html>
