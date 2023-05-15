@@ -23,7 +23,8 @@ const server = http.createServer((req, res) => {
                 datahtml = datahtml.replace('{firstArg}', userInfo.firstArg);
                 datahtml = datahtml.replace('{operator}', userInfo.operator);
                 datahtml = datahtml.replace('{secondArg}', userInfo.secondArg);
-                switch (userInfo.operator){
+                if(!isNaN(userInfo.firstArg)||!isNaN(userInfo.secondArg)) datahtml = datahtml.replace('{result}', "Wtf you need to put numbers in there!!!");
+                else switch (userInfo.operator){
                     case "+":
                         datahtml = datahtml.replace('{result}', ((+userInfo.firstArg)+(+userInfo.secondArg)).toString());
                         break
