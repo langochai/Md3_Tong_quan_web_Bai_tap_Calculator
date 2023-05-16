@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
         })
         req.on('end', () => {
             const userInfo = qs.parse(data);
-            fs.readFile('./src/data.html', 'utf8', (err, datahtml) => {
+            fs.readFile('./src/calculator.html', 'utf8', (err, datahtml) => {
                 if (err) {
                     console.log(err);
                 }
